@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Test1Controller extends Controller
+class ArtisanController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($name)
     {
-        echo 'this is index function';
+        return "my name is" .$name; 
     }
 
     /**
@@ -23,8 +23,8 @@ class Test1Controller extends Controller
      */
     public function create()
     {
-       
-    }  
+        //
+    }
 
     /**
      * Store a newly created resource in storage.

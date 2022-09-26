@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArtisanController;
+use App\Http\Controllers\TestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +20,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource(name:'/test', controller:\App\Http\Controllers\Test1Controller::class);
+Route::get('/index/{name}', [ArtisanController::class, 'index']);
+
+Route::get('/call/{name}/{address}', [TestController:: class, 'index']);
+
+
+Route::resource('user', ArtisanController::class)->only(['index', 'create', 'delete']);
+
+Route::controller(ArtisanController::class)->group(function () {
+    Route::get('/add','create');
+    Route::get('/edit','edit');
+    Route::get('/update','update');
+     
+});
+
+
